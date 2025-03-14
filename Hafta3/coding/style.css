@@ -1,0 +1,8 @@
+.divStyle /* Class oluşturmak için class isminin önüne nokta koymalıyız */
+{
+    color: blue;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+
+}

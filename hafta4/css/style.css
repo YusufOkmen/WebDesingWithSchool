@@ -1,0 +1,32 @@
+.header
+{
+    text-align: center;
+    background-color:orange;
+}
+
+.uList
+{
+    background-color: gray;
+}
+
+.oList
+{
+    background-color: lightgray;
+}
+
+.fImg
+{
+    border-radius: 35px;
+}
+
+
+.aStyle
+{
+    color: red;
+}
+
+#divId
+{
+    margin-left: 30px;
+    margin-top: 40px;
+}
