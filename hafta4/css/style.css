@@ -2,6 +2,7 @@
 {
     text-align: center;
     background-color:orange;
+    border-radius: 10px;
 }
 
 .uList
@@ -29,4 +30,10 @@
 {
     margin-left: 30px;
     margin-top: 40px;
+}
+
+.imgDiv
+{
+    display: flex;
+    justify-content: center;
 }
