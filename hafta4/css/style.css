@@ -6,24 +6,12 @@
     color: white;
 }
 
-.uList
+.cityClass
 {
-    color: aliceblue;
     background-color: #84A59D;
-    border-radius: 10px;
-    text-align: center;
-    list-style-type: none;
-    
-}
-.uList li
-{
-    margin-bottom: 10px;
-    border-bottom: 1px solid;
-}
-
-.uList li:last-child
-{
-    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .fImg
@@ -35,7 +23,8 @@
 .aStyle
 {
     color: white;
-    font-size: larger;
+    font-size: 1cm;
+    margin-right: 50px;
 }
 
 #divId
