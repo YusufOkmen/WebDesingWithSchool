@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/formStlye.css">
+
+</head>
+
+<body>
+ 
+    <form action="form.php" method="post"> <!-- Action is the place that stores the data that taken from form. -->
+    <!-- Method is way of sending message to the URL -->
+        <h1>İletişim Formu</h1>
+        <label for="name">Adınız:</label><!-- Label = naming tag -->
+        <input type="text" id="ad" name="ad" required>
+        <!-- the input takes data from the user. Required means necessary to fill. -->
+        <!-- We use id and name to address the input in the php. -->
+
+        <br>
+
+        <label for="name">Soyadınız:</label>
+        <input type="text" id="soyad" name="soyad" required>
+
+        <br>
+        
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required>
+
+        <br>
+
+        <label for="mesaj">Mesaj:</label>
+        <textarea name="mesaj" id="mesaj" required></textarea>
+
+        <br>
+
+        <input type="submit" value="Gönder">
+
+    </form>
+    
+</body>
+</html>

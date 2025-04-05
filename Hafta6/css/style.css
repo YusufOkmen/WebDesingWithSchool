@@ -1,0 +1,69 @@
+ul
+{
+    list-style-type: none; /* Tshis line of code deletes the dots and the numbers that next to li elements. */
+    margin: 15px;
+    padding: 0;
+    overflow: hidden; /* This line of code hides the text that if it is overflow the borders. */
+    background-color: rgb(31, 110, 149);
+}
+
+li
+{
+    margin-left: 30px;
+    text-align: center;
+}
+
+a
+{
+    color: white;
+}
+
+a:hover
+{
+    color:cyan ;
+}
+
+h1
+{
+    text-align: center;
+}
+
+table
+{
+    width: 80%;
+    margin: auto; 
+    border-collapse: collapse;
+}
+
+tr, td, th
+{
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center  ;
+}
+
+.tr1
+{
+    background-color: rgb(184, 180, 173);
+}
+
+.tr2
+{
+    background-color: rgb(152, 201, 218);
+}
+
+.tr3
+{
+    background-color: rgb(222, 198, 158);
+}
+
+.tr4
+{
+    background-color: rgb(185, 120, 77);
+}
+
+.tr5
+{
+    background-color: rgb(122, 144, 183);
+}
+
