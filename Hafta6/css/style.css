@@ -1,16 +1,21 @@
 ul
 {
     list-style-type: none; /* Tshis line of code deletes the dots and the numbers that next to li elements. */
-    margin: 15px;
+    width: 50%;
+    margin: 0 auto;
     padding: 0;
     overflow: hidden; /* This line of code hides the text that if it is overflow the borders. */
     background-color: rgb(31, 110, 149);
+    border-radius: 10px;
 }
 
 li
 {
     margin-left: 30px;
     text-align: center;
+    font-size: xx-large;
+    padding-bottom: 100px;
+    padding-top: 100px;
 }
 
 a
