@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+</head>
+<body>
+    
+
+  <div class="container mt-5">
+    <h1>Seller Graphics</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card" style="width: 100%;">
+            <div id="container" style="height: 400px"></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card" style="width: 100%;">
+            <div id="graphic2" style="height: 400px"></div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card" style="width: 100%;">
+            <div id="graphic4" style="height: 400px"></div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card" style="width: 100%;">
+            <div id="graphic3" style="height: 400px"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  
+    <!-- Bootstrap ve js script-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+    <!-- JS document-->
+    <script type="text/javascript">
+        var dom = document.getElementById('container');
+        var myChart = echarts.init(dom, null, {
+          renderer: 'canvas',
+          useDirtyRect: false
+        });
+        var app = {};
+        
+        var option;
+    
+        option = {
+      xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      series: [
+        {
+          data: [120, 200, 150, 80, 70, 110, 130],
+          type: 'bar'
+        }
+      ]
+    };
+    
+        if (option && typeof option === 'object') {
+          myChart.setOption(option);
+        }
+    
+        window.addEventListener('resize', myChart.resize);
+      </script>
+
+<script type="text/javascript">
+  var dom = document.getElementById('graphic2');
+  var myChart = echarts.init(dom, null, {
+    renderer: 'canvas',
+    useDirtyRect: false
+  });
+  var app = {};
+  
+  var option;
+
+  const data = [];
+for (let i = 0; i < 5; ++i) {
+data.push(Math.round(Math.random() * 200));
+}
+option = {
+xAxis: {
+  max: 'dataMax'
+},
+yAxis: {
+  type: 'category',
+  data: ['A', 'B', 'C', 'D', 'E'],
+  inverse: true,
+  animationDuration: 300,
+  animationDurationUpdate: 300,
+  max: 2 // only the largest 3 bars will be displayed
+},
+series: [
+  {
+    realtimeSort: true,
+    name: 'X',
+    type: 'bar',
+    data: data,
+    label: {
+      show: true,
+      position: 'right',
+      valueAnimation: true
+    }
+  }
+],
+legend: {
+  show: true
+},
+animationDuration: 0,
+animationDurationUpdate: 3000,
+animationEasing: 'linear',
+animationEasingUpdate: 'linear'
+};
+function run() {
+for (var i = 0; i < data.length; ++i) {
+  if (Math.random() > 0.9) {
+    data[i] += Math.round(Math.random() * 2000);
+  } else {
+    data[i] += Math.round(Math.random() * 200);
+  }
+}
+myChart.setOption({
+  series: [
+    {
+      type: 'bar',
+      data
+    }
+  ]
+});
+}
+setTimeout(function () {
+run();
+}, 0);
+setInterval(function () {
+run();
+}, 3000);
+
+  if (option && typeof option === 'object') {
+    myChart.setOption(option);
+  }
+
+  window.addEventListener('resize', myChart.resize);
+</script>
+
+<script type="text/javascript">
+  var dom = document.getElementById('graphic3');
+  var myChart = echarts.init(dom, null, {
+    renderer: 'canvas',
+    useDirtyRect: false
+  });
+  var app = {};
+  
+  var option;
+
+  const posList = [
+'left',
+'right',
+'top',
+'bottom',
+'inside',
+'insideTop',
+'insideLeft',
+'insideRight',
+'insideBottom',
+'insideTopLeft',
+'insideTopRight',
+'insideBottomLeft',
+'insideBottomRight'
+];
+app.configParameters = {
+rotate: {
+  min: -90,
+  max: 90
+},
+align: {
+  options: {
+    left: 'left',
+    center: 'center',
+    right: 'right'
+  }
+},
+verticalAlign: {
+  options: {
+    top: 'top',
+    middle: 'middle',
+    bottom: 'bottom'
+  }
+},
+position: {
+  options: posList.reduce(function (map, pos) {
+    map[pos] = pos;
+    return map;
+  }, {})
+},
+distance: {
+  min: 0,
+  max: 100
+}
+};
+app.config = {
+rotate: 90,
+align: 'left',
+verticalAlign: 'middle',
+position: 'insideBottom',
+distance: 15,
+onChange: function () {
+  const labelOption = {
+    rotate: app.config.rotate,
+    align: app.config.align,
+    verticalAlign: app.config.verticalAlign,
+    position: app.config.position,
+    distance: app.config.distance
+  };
+  myChart.setOption({
+    series: [
+      {
+        label: labelOption
+      },
+      {
+        label: labelOption
+      },
+      {
+        label: labelOption
+      },
+      {
+        label: labelOption
+      }
+    ]
+  });
+}
+};
+const labelOption = {
+show: true,
+position: app.config.position,
+distance: app.config.distance,
+align: app.config.align,
+verticalAlign: app.config.verticalAlign,
+rotate: app.config.rotate,
+formatter: '{c}  {name|{a}}',
+fontSize: 16,
+rich: {
+  name: {}
+}
+};
+option = {
+tooltip: {
+  trigger: 'axis',
+  axisPointer: {
+    type: 'shadow'
+  }
+},
+legend: {
+  data: ['Forest', 'Steppe', 'Desert', 'Wetland']
+},
+toolbox: {
+  show: true,
+  orient: 'vertical',
+  left: 'right',
+  top: 'center',
+  feature: {
+    mark: { show: true },
+    dataView: { show: true, readOnly: false },
+    magicType: { show: true, type: ['line', 'bar', 'stack'] },
+    restore: { show: true },
+    saveAsImage: { show: true }
+  }
+},
+xAxis: [
+  {
+    type: 'category',
+    axisTick: { show: false },
+    data: ['2012', '2013', '2014', '2015', '2016']
+  }
+],
+yAxis: [
+  {
+    type: 'value'
+  }
+],
+series: [
+  {
+    name: 'Forest',
+    type: 'bar',
+    barGap: 0,
+    label: labelOption,
+    emphasis: {
+      focus: 'series'
+    },
+    data: [320, 332, 301, 334, 390]
+  },
+  {
+    name: 'Steppe',
+    type: 'bar',
+    label: labelOption,
+    emphasis: {
+      focus: 'series'
+    },
+    data: [220, 182, 191, 234, 290]
+  },
+  {
+    name: 'Desert',
+    type: 'bar',
+    label: labelOption,
+    emphasis: {
+      focus: 'series'
+    },
+    data: [150, 232, 201, 154, 190]
+  },
+  {
+    name: 'Wetland',
+    type: 'bar',
+    label: labelOption,
+    emphasis: {
+      focus: 'series'
+    },
+    data: [98, 77, 101, 99, 40]
+  }
+]
+};
+
+  if (option && typeof option === 'object') {
+    myChart.setOption(option);
+  }
+
+  window.addEventListener('resize', myChart.resize);
+</script>
+
+<script type="text/javascript">
+  var dom = document.getElementById('graphic4');
+  var myChart = echarts.init(dom, null, {
+    renderer: 'canvas',
+    useDirtyRect: false
+  });
+  var app = {};
+  
+  var option;
+
+  option = {
+title: [
+  {
+    text: 'Radial Polar Bar Label Position (middle)'
+  }
+],
+polar: {
+  radius: [30, '80%']
+},
+radiusAxis: {
+  max: 4
+},
+angleAxis: {
+  type: 'category',
+  data: ['a', 'b', 'c', 'd'],
+  startAngle: 75
+},
+tooltip: {},
+series: {
+  type: 'bar',
+  data: [2, 1.2, 2.4, 3.6],
+  coordinateSystem: 'polar',
+  label: {
+    show: true,
+    position: 'middle',
+    formatter: '{b}: {c}'
+  }
+},
+animation: false
+};
+
+  if (option && typeof option === 'object') {
+    myChart.setOption(option);
+  }
+
+  window.addEventListener('resize', myChart.resize);
+</script>
+
+</body>
+</html>
